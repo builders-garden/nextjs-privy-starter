@@ -5,7 +5,7 @@ import Tabs from "@/components/Tabs";
 import { usePrivy } from "@privy-io/react-auth";
 
 export default function Home() {
-  const { user } = usePrivy();
+  const { authenticated } = usePrivy();
 
   return (
     <div className="min-h-screen min-w-screen">
@@ -14,8 +14,8 @@ export default function Home() {
           <Header />
         </div>
         <div className="flex-1 bg-white h-full p-6 lg:p-12 flex flex-col items-center justify-center w-full space-y-4">
-          {!user && <div className="w-full lg:w-1/2"></div>}
-          {user && <Tabs />}
+          {!authenticated && <div className="w-full lg:w-1/2"></div>}
+          {authenticated && <Tabs />}
         </div>
       </div>
     </div>

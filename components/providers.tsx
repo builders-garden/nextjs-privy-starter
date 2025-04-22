@@ -32,6 +32,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         },
         embeddedWallets: {
           createOnLogin: "all-users",
+          showWalletUIs: true,
         },
         defaultChain: baseSepolia,
         supportedChains: [base, baseSepolia],
