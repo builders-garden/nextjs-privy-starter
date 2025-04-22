@@ -60,7 +60,11 @@ export default function SmartWalletInfo({
               Smart Wallet
             </label>
             <div className="relative">
-              <div className="w-full px-3 py-2 border border-gray-300 rounded-md">
+              <div
+                className={`w-full px-3 py-2 border border-gray-300 rounded-md ${
+                  smartWalletAddress ? "" : "h-[42px]"
+                }`}
+              >
                 {smartWalletAddress}
               </div>
               {/* Copy button with success indicator */}
@@ -86,7 +90,8 @@ export default function SmartWalletInfo({
             `, ${formatUnits(smartWalletUsdcBalance, 6)} USDC`}
         </div>
         {/* Display USDC faucet link on testnet */}
-        {chainId === baseSepolia.id.toString() && (
+        {/* Added some empty space to make it look better when the chain change from Base to Base Sepolia*/}
+        {chainId === baseSepolia.id.toString() ? (
           <div className="text-xs mt-1">
             <a
               href="https://faucet.circle.com/"
@@ -96,6 +101,8 @@ export default function SmartWalletInfo({
               USDC Sepolia Faucet
             </a>
           </div>
+        ) : (
+          <div className="mt-1 h-[16px]">{""}</div>
         )}
       </div>
     </div>
