@@ -88,7 +88,7 @@ export default function WalletInfo({
             `, ${formatUnits(embeddedUsdcBalance, 6)} USDC`}
         </div>
         {/* Display USDC faucet link on testnet */}
-        {chainId === baseSepolia.id.toString() && (
+        {chainId === baseSepolia.id.toString() ? (
           <div className="text-xs mt-1">
             <a
               href="https://faucet.circle.com/"
@@ -98,6 +98,8 @@ export default function WalletInfo({
               USDC Sepolia Faucet
             </a>
           </div>
+        ) : (
+          <div className="mt-1 h-[16px]">{""}</div>
         )}
       </div>
     </div>
